@@ -28,7 +28,10 @@ def main( FLAGS ):
     pre_scale1, pre_scale2, pre_scale3 = net.feature_extractor( image, False )
     scale1, scale2, scale3 = net.scales( pre_scale1, pre_scale2, pre_scale3, False )
 
+    init = tf.global_variables_initializer()
+    
     with tf.Session() as sess:
+        sess.run(init)
         saver = tf.train.Saver()
         save_path = select_things.select_checkpoint( FLAGS.scale )
         last_checkpoint = tf.train.latest_checkpoint( save_path, 'checkpoint' )
@@ -39,6 +42,7 @@ def main( FLAGS ):
             print( 'Model has not trained' )
 
         start_time = time.time()
+        #tf.global_variables_initializer()
         scale1, scale2, scale3 = sess.run( [scale1, scale2, scale3], feed_dict = {image: [output_image]} )
 
     if FLAGS.scale == 1:

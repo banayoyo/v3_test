@@ -26,8 +26,9 @@ def images( batch_size, path ):
     return batch_filenames
 
 def get_image( path, width, height ):
-    image = cv2.imread( path )
-    image = cv2.cvtColor( image, cv2.COLOR_BGR2RGB )
+    image = cv2.imread(path)
+    if image is True:
+        image = cv2.cvtColor( image, cv2.COLOR_BGR2RGB )
     # image = np.true_divide( image, 255 )
     image = cv2.resize( image, ( width, height ) )
 

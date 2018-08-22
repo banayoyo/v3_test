@@ -1,5 +1,7 @@
 # Image dir
-image_dir: './data/VOCtest_06-Nov-2007/JPEGImages/000001.jpg'
+image_dir: './data/VOCtest/JPEGImages/000001.jpg'
+
+#image_dir: 'C:/Users/admin/Desktop/Git_Repo/TF/yolov3/data/VOCtest/JPEGImages/000001.jpg'
 
 # Select the scale
 scale: 1
